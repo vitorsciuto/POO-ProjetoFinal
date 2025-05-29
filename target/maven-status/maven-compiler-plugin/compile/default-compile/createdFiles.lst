@@ -1,6 +1,7 @@
 com\mack\clinica\model\AgendarConsultaDAO.class
 com\mack\clinica\controller\AdminDashboardServlet.class
 com\mack\clinica\controller\PacienteMeuCadastroServlet.class
+com\mack\clinica\controller\CadastroServlet.class
 com\mack\clinica\controller\LoginServlet.class
 com\mack\clinica\controller\PacienteDashboardServlet.class
 com\mack\clinica\model\UsuarioDAO.class

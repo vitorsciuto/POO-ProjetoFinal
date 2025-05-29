@@ -1,3 +1,6 @@
+/* index.css */
+
+/* ------ Body & Centering ------ */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -6,44 +9,159 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
+/* ------ Login Box ------ */
 .login-container {
-    background-color: white;
+    background: #fff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
+    box-sizing: border-box;
 }
 
-h2 {
+.login-container h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-label, input {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-input {
+.login-container label {
+    text-align: center;
+    font-weight: bold;
+}
+
+.login-container input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-button {
-    width: 100%;
+.login-container .btn-submit,
+.login-container .btn-register {
     padding: 10px;
     background-color: #0066cc;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
 }
 
-button:hover {
+.login-container .btn-submit:hover,
+.login-container .btn-register:hover {
     background-color: #004d99;
+}
+
+/* ------ Backdrop ------ */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 900;
+}
+
+.modal-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ------ Modal ------ */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 360px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Body & Form */
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-body label {
+    font-weight: bold;
+}
+
+.modal-body input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Submit */
+.modal-body .btn-submit {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.modal-body .btn-submit:hover {
+    background-color: #1e7e34;
 }
