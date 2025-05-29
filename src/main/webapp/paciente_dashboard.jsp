@@ -13,9 +13,9 @@
     <div class="navbar">
         <div class="nav-links">
             <a href="paciente_dashboard">Home</a>
-            <a href="agendarConsulta">Agendamento de Consultas</a>
+            <a href="agendar_consulta">Agendamento de Consultas</a>
             <a href="#">Minha Agenda</a>
-            <a href="#">Meu Cadastro</a>
+            <a href="paciente_meu_cadastro">Meu Cadastro</a>
             <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
         </div>
     </div>

@@ -14,7 +14,7 @@
     <div class="navbar">
         <div class="nav-links">
             <a href="paciente_dashboard">Home</a>
-            <a href="agendarConsulta">Agendamento de Consultas</a>
+            <a href="agendar_consulta">Agendamento de Consultas</a>
             <a href="#">Minha Agenda</a>
             <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
         </div>
@@ -23,7 +23,7 @@
 <!-- Conteúdo centralizado -->
 <div class="content">
     <h1>Agendar Consulta</h1>
-    <form method="post" action="agendarConsulta" class="form-container">
+    <form method="post" action="agendar_consulta" class="form-container">
         <label for="profissionalId">Profissional:</label>
         <select id="profissionalId" name="profissionalId" required>
             <option value="">Selecione o médico</option>
