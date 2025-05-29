@@ -30,11 +30,12 @@ public class LoginActionServlet extends HttpServlet {
 
         Usuario usuario = UsuarioDAO.buscarUsuario(email, senha, realPathBase);
 
-        if (usuario != null) {
+        if (email != null) {
             HttpSession session = request.getSession();
             session.setAttribute("id", usuario.getId());
             session.setAttribute("nome", usuario.getNome());
             session.setAttribute("tipo", usuario.getTipo());
+            session.setAttribute("usuario", usuario);
 
             if ("admin".equalsIgnoreCase(usuario.getTipo())) {
                 response.sendRedirect("admin_dashboard");

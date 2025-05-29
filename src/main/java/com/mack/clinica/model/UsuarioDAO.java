@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * DAO para operações de usuário.
+ */
 public class UsuarioDAO {
 
     /**
@@ -76,6 +79,54 @@ public class UsuarioDAO {
                     throw new SQLException("Falha ao obter ID do usuário.");
                 }
             }
+        }
+    }
+
+    /**
+     * Busca o usuário pelo ID, trazendo todos os campos para o perfil.
+     * @param id ID do usuário.
+     * @param realPathBase Caminho real da aplicação para localizar o banco.
+     * @return Objeto Usuario completo, ou null se não existir.
+     * @throws SQLException em caso de erro de acesso ao banco.
+     */
+    public static Usuario buscarPorId(int id, String realPathBase) throws SQLException {
+        String sql = "SELECT id, nome, email, cpf, celular, tipo FROM usuarios WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection(realPathBase);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Usuario u = new Usuario();
+                    u.setId(rs.getInt("id"));
+                    u.setNome(rs.getString("nome"));
+                    u.setEmail(rs.getString("email"));
+                    u.setCpf(rs.getString("cpf"));
+                    u.setCelular(rs.getString("celular"));
+                    u.setTipo(rs.getString("tipo"));
+                    return u;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Atualiza nome, email, cpf e celular do usuário no banco.
+     * @param u Objeto Usuario com ID definido e novos valores de campos.
+     * @param realPathBase Caminho real da aplicação para localizar o banco.
+     * @return true se a atualização afetou alguma linha; false caso contrário.
+     * @throws SQLException em caso de erro de acesso ao banco.
+     */
+    public static boolean atualizarUsuario(Usuario u, String realPathBase) throws SQLException {
+        String sql = "UPDATE usuarios SET nome = ?, email = ?, cpf = ?, celular = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection(realPathBase);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, u.getNome());
+            ps.setString(2, u.getEmail());
+            ps.setString(3, u.getCpf());
+            ps.setString(4, u.getCelular());
+            ps.setInt(5, u.getId());
+            return ps.executeUpdate() > 0;
         }
     }
 }

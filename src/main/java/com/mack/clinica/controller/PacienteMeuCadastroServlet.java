@@ -1,54 +1,72 @@
-
-
-//public class PacienteMeuCadastroServlet {
-    // Implementação do servlet para gerenciar o cadastro do paciente
-    // Este servlet deve lidar com requisições HTTP relacionadas ao cadastro do paciente,
-    // como exibir o formulário de cadastro, processar atualizações e exibir mensagens de sucesso ou erro.
-
-    // Métodos típicos incluem:
-    // - doGet: para exibir o formulário de cadastro
-    // - doPost: para processar os dados enviados pelo formulário
-    // - métodos auxiliares para validação e persistência dos dados
-
-    // Exemplo de estrutura básica:
-    
-    /*
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Lógica para exibir o formulário de cadastro
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Lógica para processar os dados do formulário
-    }
-    */
-    //}
 package com.mack.clinica.controller;
 
-import java.io.IOException;
-
+import com.mack.clinica.model.Usuario;
+import com.mack.clinica.model.UsuarioDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
+import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/paciente_meu_cadastro")
 public class PacienteMeuCadastroServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/paciente_meu_cadastro.jsp").forward(request, response);
+        HttpSession session = req.getSession(false);
+        // Agora checamos o atributo "usuario" que realmente existe na sessão
+        if (session == null || session.getAttribute("usuario") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+        Usuario sessUser = (Usuario) session.getAttribute("usuario");
+
+        try {
+            String realPath = getServletContext().getRealPath("/");
+            Usuario usuario = UsuarioDAO.buscarPorId(sessUser.getId(), realPath);
+            req.setAttribute("usuario", usuario);
+            req.getRequestDispatcher("/paciente_meu_cadastro.jsp")
+               .forward(req, resp);
+        } catch (SQLException e) {
+            throw new ServletException("Erro ao carregar dados do usuário", e);
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // Lógica para processar os dados do formulário de cadastro
-        // Exemplo: salvar os dados no banco de dados e redirecionar ou exibir mensagens de erro/sucesso
+        int id        = Integer.parseInt(req.getParameter("id"));
+        String nome   = req.getParameter("nome");
+        String email  = req.getParameter("email");
+        String cpf    = req.getParameter("cpf");
+        String celular= req.getParameter("celular");
+
+        Usuario u = new Usuario();
+        u.setId(id);
+        u.setNome(nome);
+        u.setEmail(email);
+        u.setCpf(cpf);
+        u.setCelular(celular);
+
+        try {
+            String realPath = getServletContext().getRealPath("/");
+            boolean sucesso = UsuarioDAO.atualizarUsuario(u, realPath);
+
+            if (sucesso) {
+                // Atualiza o objeto usuario na sessão
+                HttpSession session = req.getSession();
+                session.setAttribute("usuario", u);
+                // Redirect para mostrar ?success=1
+                resp.sendRedirect(req.getContextPath()
+                    + "/paciente_meu_cadastro?success=1");
+            } else {
+                req.setAttribute("error", "Não foi possível atualizar seus dados.");
+                doGet(req, resp);
+            }
+        } catch (SQLException e) {
+            throw new ServletException("Erro ao atualizar usuário", e);
+        }
     }
 }
-
-// Este servlet é responsável por gerenciar o cadastro do paciente, permitindo que ele visualize e atualize suas informações pessoais.
-// A implementação do método doPost deve incluir a lógica para validar os dados recebidos do formulário,
