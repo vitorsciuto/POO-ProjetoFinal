@@ -149,3 +149,133 @@ form button:hover {
     text-align: center;    /* Também centraliza o texto */
 }
 
+/* === Página Minha Agenda === */
+.agenda-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.agenda-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.agenda-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.8em;
+}
+
+/* Tabela com estilo moderno */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.tabela th, .tabela td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+.tabela th {
+    background-color: #007BFF;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.tabela tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.tabela tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botão de exclusão */
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #dc3545;
+    transition: color 0.2s;
+}
+.btn-delete:hover {
+    color: #a71d2a;
+}
+
+/* === Cards Centralizados para Minhas Consultas === */
+
+/* container geral centralizado */
+.agenda-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* grid responsivo de cards */
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* cada cartão de consulta */
+.consulta-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* alinha conteúdo à esquerda */
+    text-align: left;
+}
+
+/* cabeçalho flexível dentro do card (data + botão) */
+.consulta-card .card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* estilo da data/hora */
+.consulta-card h3 {
+    margin: 0;
+    color: #007BFF;
+    font-size: 1.1em;
+}
+
+/* estilo do texto do médico */
+.consulta-card p {
+    margin: 5px 0 0;
+    color: #333;
+    font-size: 0.95em;
+}
+
+/* botão de excluir em posição estática, ao lado */
+.consulta-card .btn-delete {
+    position: static;      /* sem absolute */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #dc3545;
+    transition: color 0.2s;
+}
+.consulta-card .btn-delete:hover {
+    color: #a71d2a;
+}
