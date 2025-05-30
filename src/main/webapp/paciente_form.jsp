@@ -5,16 +5,17 @@
 <head>
   <meta charset="UTF-8">
   <title>${param.id == null ? "Novo Paciente" : "Editar Paciente"}</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css?v=123"/>
 </head>
 <body>
 
   <!-- Barra de navegação -->
- <div class="navbar">
+    <div class="navbar">
         <div class="nav-links">
-            <a href="${pageContext.request.contextPath}/home">Home</a>
+            <a href="${pageContext.request.contextPath}/admin_dashboard">Home</a>
             <a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a>
-            <a href="${pageContext.request.contextPath}/minha_agenda.jsp">Minha Agenda</a>
+            <a href="${pageContext.request.contextPath}/medicos">Cadastro de Médicos</a>
+            <a href="${pageContext.request.contextPath}/agendamentos">Agendamentos</a>
             <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
             <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
         </div>

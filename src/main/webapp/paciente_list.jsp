@@ -5,21 +5,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastro de Pacientes</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css?v=123">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css?v=123"/>
 </head>
 <body>
 
   <!-- Barra de navegação -->
-  <nav class="navbar">
-    <ul>
-        <a href="${pageContext.request.contextPath}/home">Home</a>
-        <a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a>
-        <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
-        <a href="${pageContext.request.contextPath}/minha_agenda.jsp">Minha Agenda</a>
-        <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
-        <a href="${pageContext.request.contextPath}/logout">Logout</a>
-    </ul>
-    </nav>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="${pageContext.request.contextPath}/admin_dashboard">Home</a>
+            <a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a>
+            <a href="${pageContext.request.contextPath}/medicos">Cadastro de Médicos</a>
+            <a href="${pageContext.request.contextPath}/agendamentos.jsp">Agendamentos</a>
+            <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
+            <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
+        </div>
+    </div>
 
   <div class="container">
     <h2>Cadastro de Pacientes</h2>

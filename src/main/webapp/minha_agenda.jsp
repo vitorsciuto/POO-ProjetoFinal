@@ -15,15 +15,15 @@
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="nav-links">
-      <a href="${pageContext.request.contextPath}/paciente_dashboard">Home</a>
-      <a href="${pageContext.request.contextPath}/agendar_consulta">Agendamento de Consultas</a>
-      <a href="${pageContext.request.contextPath}/minha_agenda">Minha Agenda</a>
-      <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
-      <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="${pageContext.request.contextPath}/paciente_dashboard">Home</a>
+            <a href="${pageContext.request.contextPath}/agendar_consulta">Agendamento de Consultas</a>
+            <a href="${pageContext.request.contextPath}/minha_agenda">Minha Agenda</a>
+            <a href="${pageContext.request.contextPath}/paciente_meu_cadastro">Meu Cadastro</a>
+            <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
+        </div>
     </div>
-  </div>
 
   <!-- Container principal -->
   <div class="agenda-container">
