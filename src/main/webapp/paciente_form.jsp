@@ -38,6 +38,9 @@
       <label for="celular">Celular:</label>
       <input id="celular" type="text" name="celular" value="${paciente.celular}" required/><br/>
 
+      <label for="senha">Senha:</label>
+      <input id="senha" type="password" name="senha" value="${paciente.senha}" required/>
+
       <button type="submit" class="btn">Salvar</button>
       <a href="${pageContext.request.contextPath}/pacientes" class="btn btn-secondary">Voltar</a>
     </form>

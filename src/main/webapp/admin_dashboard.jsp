@@ -15,7 +15,7 @@
             <a href="${pageContext.request.contextPath}/admin_dashboard">Home</a>
             <a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a>
             <a href="${pageContext.request.contextPath}/medicos">Cadastro de Médicos</a>
-            <a href="${pageContext.request.contextPath}/agendamentos.jsp">Agendamentos</a>
+            <a href="${pageContext.request.contextPath}/agendamentos">Agendamentos</a>
             <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
             <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
         </div>
