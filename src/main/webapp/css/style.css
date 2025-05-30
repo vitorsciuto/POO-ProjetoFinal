@@ -1,5 +1,5 @@
 /* ========================================================================
-   style.css
+   style.css – Versão Atualizada Completa
    ======================================================================== */
 
 /* ---------------- Reset básico ---------------- */
@@ -8,6 +8,8 @@ html, body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  color: #333;
+  box-sizing: border-box;
 }
 
 /* ---------------- Navbar genérica ---------------- */
@@ -19,7 +21,7 @@ html, body {
 }
 
 /* Se você usa <ul class="nav-links"> dentro de .navbar */
-.navbar ul {
+.navbar ul.nav-links {
   list-style: none;
   display: flex;
   margin: 0;
@@ -36,35 +38,36 @@ html, body {
 }
 
 /* Espaçamento entre os links (UL→LI ou DIV→A) */
-.navbar ul li,
+.navbar ul.nav-links li,
 .navbar .nav-links > a {
   margin-right: 20px;
 }
 
 /* Remove margem do último link */
-.navbar ul li:last-child,
+.navbar ul.nav-links li:last-child,
 .navbar .nav-links > a:last-child {
   margin-right: 0;
 }
 
 /* Empurra o logout para a direita */
-.navbar ul li.logout-link,
+.navbar ul.nav-links li.logout-link,
 .navbar .nav-links .logout-link {
   margin-left: auto;
   margin-right: 0;
 }
 
 /* Estilo dos próprios links */
-.navbar ul li a,
+.navbar ul.nav-links li a,
 .navbar .nav-links a {
   color: #fff;
   text-decoration: none;
   padding: 14px 10px;
   display: block;
+  transition: background-color 0.2s;
 }
 
 /* Hover nos links */
-.navbar ul li a:hover,
+.navbar ul.nav-links li a:hover,
 .navbar .nav-links a:hover {
   background-color: #575757;
 }
@@ -98,17 +101,19 @@ html, body {
 .form-container label {
   text-align: left;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 .form-container input,
 .form-container select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 /* ---------------- Botões genéricos ---------------- */
 .button {
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #28a745;
   color: white;
   border: none;
@@ -126,6 +131,7 @@ html, body {
 h1, h2 {
   text-align: center;
   color: #333;
+  margin: 0 0 20px;
 }
 
 /* ---------------- Formulários inline ---------------- */
@@ -133,6 +139,7 @@ form label {
   display: block;
   margin-top: 15px;
   color: #555;
+  font-weight: bold;
 }
 form input,
 form select,
@@ -142,9 +149,11 @@ form button {
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 form button {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border: none;
   margin-top: 20px;
@@ -156,7 +165,7 @@ form button:hover {
 }
 
 /* ---------------- Classes de botão/links ---------------- */
-.button,
+.btn,
 .logout-button {
   display: inline-block;
   padding: 10px 20px;
@@ -166,8 +175,9 @@ form button:hover {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
-.button:hover,
+.btn:hover,
 .logout-button:hover {
   background-color: #218838;
 }
@@ -178,19 +188,6 @@ form button:hover {
   margin-top: 50px;
   font-size: 1.2em;
   color: green;
-}
-
-/* ---------------- Estilo para título e parágrafo em .content ---------------- */
-.content h1 {
-  font-size: 32px;
-  margin: 20px 0 10px;
-  text-align: center;
-}
-.content p {
-  font-size: 18px;
-  margin: 20px 40px;
-  line-height: 1.6;
-  text-align: center;
 }
 
 /* ---------------- Tela “Minha Agenda” (cards e tabela) ---------------- */
@@ -226,7 +223,7 @@ form button:hover {
   text-align: center;
 }
 .tabela th {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -277,7 +274,7 @@ form button:hover {
 }
 .consulta-card h3 {
   margin: 0;
-  color: #007BFF;
+  color: #007bff;
   font-size: 1.1em;
 }
 .consulta-card p {
@@ -286,7 +283,7 @@ form button:hover {
   font-size: 0.95em;
 }
 
-/* ---------------- Listagem de Pacientes ---------------- */
+/* ---------------- Listagem de Pacientes/Médicos ---------------- */
 .styled-table {
   width: 100%;
   border-collapse: collapse;
@@ -300,6 +297,7 @@ form button:hover {
 }
 .styled-table thead th {
   background: #f4f4f4;
+  font-weight: bold;
 }
 .styled-table tbody tr:nth-child(even) {
   background: #f9f9f9;
@@ -308,7 +306,7 @@ form button:hover {
   background: #e9f7ff;
 }
 
-/* ---------------- Botões do CRUD de Pacientes ---------------- */
+/* ---------------- Botões do CRUD ---------------- */
 .btn {
   display: inline-block;
   padding: 8px 16px;
