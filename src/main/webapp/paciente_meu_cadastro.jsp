@@ -9,15 +9,15 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-  <div class="navbar">
-    <div class="nav-links">
-      <a href="${pageContext.request.contextPath}/paciente_dashboard">Home</a>
-      <a href="${pageContext.request.contextPath}/agendar_consulta">Agendar Consulta</a>
-      <a href="${pageContext.request.contextPath}/minha_agenda">Minha Agenda</a>
-      <a href="${pageContext.request.contextPath}/paciente_meu_cadastro">Meu Cadastro</a>
-      <a href="${pageContext.request.contextPath}/logout">Logout</a>
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="${pageContext.request.contextPath}/paciente_dashboard">Home</a>
+            <a href="${pageContext.request.contextPath}/agendar_consulta">Agendamento de Consultas</a>
+            <a href="${pageContext.request.contextPath}/minha_agenda">Minha Agenda</a>
+            <a href="${pageContext.request.contextPath}/paciente_meu_cadastro">Meu Cadastro</a>
+            <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
+        </div>
     </div>
-  </div>
 
   <div class="content">
     <h1>Meu Cadastro</h1>

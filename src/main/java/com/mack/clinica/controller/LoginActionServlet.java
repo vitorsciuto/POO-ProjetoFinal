@@ -30,7 +30,7 @@ public class LoginActionServlet extends HttpServlet {
 
         Usuario usuario = UsuarioDAO.buscarUsuario(email, senha, realPathBase);
 
-        if (email != null) {
+        if (usuario != null) {
             HttpSession session = request.getSession();
             session.setAttribute("id", usuario.getId());
             session.setAttribute("nome", usuario.getNome());
