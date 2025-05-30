@@ -12,12 +12,12 @@
   <!-- Barra de navegação -->
   <nav class="navbar">
     <ul>
-        <li><a href="${pageContext.request.contextPath}/home">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a></li>
-        <li><a href="${pageContext.request.contextPath}/agendar_consulta.jsp">Agendar Consulta</a></li>
-        <li><a href="${pageContext.request.contextPath}/minha_agenda.jsp">Minha Agenda</a></li>
-        <li><a href="${pageContext.request.contextPath}/meu_cadastro.jsp">Meu Cadastro</a></li>
-        <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+        <a href="${pageContext.request.contextPath}/home">Home</a>
+        <a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a>
+        <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
+        <a href="${pageContext.request.contextPath}/minha_agenda.jsp">Minha Agenda</a>
+        <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
+        <a href="${pageContext.request.contextPath}/logout">Logout</a>
     </ul>
     </nav>
 

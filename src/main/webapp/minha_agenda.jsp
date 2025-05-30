@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Minha Agenda</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css?v=123"/>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-..."
@@ -20,7 +20,7 @@
       <a href="${pageContext.request.contextPath}/paciente_dashboard">Home</a>
       <a href="${pageContext.request.contextPath}/agendar_consulta">Agendamento de Consultas</a>
       <a href="${pageContext.request.contextPath}/minha_agenda">Minha Agenda</a>
-      <a href="${pageContext.request.contextPath}/paciente_meu_cadastro">Meu Cadastro</a>
+      <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
       <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
     </div>
   </div>
@@ -33,8 +33,9 @@
 
     <!-- Sem consultas -->
     <c:if test="${empty consultas}">
-      <p>Você não tem consultas agendadas.</p>
+  <h2>Você não tem consultas agendadas.</h2>
     </c:if>
+
 
     <!-- Com consultas -->
     <c:if test="${not empty consultas}">

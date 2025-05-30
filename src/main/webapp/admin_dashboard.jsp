@@ -12,11 +12,10 @@
     <!-- Menu de Navegação -->
     <div class="navbar">
         <div class="nav-links">
-            <a href="admin_dashboard">Home</a>
+            <a href="${pageContext.request.contextPath}/home">Home</a>
             <a href="${pageContext.request.contextPath}/pacientes">Cadastro de Pacientes</a>
-            <a href="#">Cadastro de Médicos</a>
-            <a href="#">Consultar Agenda</a>
-            <a href="#">Ficha Clínica</a>
+            <a href="${pageContext.request.contextPath}/minha_agenda.jsp">Minha Agenda</a>
+            <a href="${pageContext.request.contextPath}/ficha_clinica">Ficha Clínica</a>
             <a href="${pageContext.request.contextPath}/logout" class="logout-link">Logout</a>
         </div>
     </div>
